@@ -1,21 +1,24 @@
 import React, { useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 
 export default function AccordionItem(props) {
   const [isExpanded, setIsExpanded] = useState(false);
+
   const handleToggle = () => {
     setIsExpanded(!isExpanded);
   };
 
   return (
-    <div className="flex flex-col w-1/2 gap-3 bg-orange-200 rounded-xl  p-3 hover:p-4 ">
+    <>
       <button
         id={`accordion-button-${props.id}`}
         role="button"
         accordion-expanded={`${isExpanded}`}
         accordion-control={`accordion-content-${props.id}`}
         onClick={handleToggle}
-        className="bg-slate-600 p-1 text-white rounded-lg"
+        className="flex flex-row items-center gap-2 w-full text-left p-5 border-b-gray-500 border hover:bg-[#DDDDDD] "
       >
+        <IoIosArrowDown />
         {props.title}
       </button>
       <div
@@ -23,10 +26,10 @@ export default function AccordionItem(props) {
         role="region"
         accordion-labelledby={`accordion-button-${props.id}`}
         hidden={!isExpanded}
-        className="m-4 p-4 bg-gray-300 rounded-lg"
+        className="p-4 bg-white"
       >
         <p>{props.content}</p>
       </div>
-    </div>
+    </>
   );
 }

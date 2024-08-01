@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Accordion from "./Accordion";
+import AccessibleAccordionImported from "./AccessibleAccordionImported";
 
 function App() {
   const items = [
@@ -31,6 +32,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Accordion items={items} />} />
+          <Route
+            path="/AccessibleAccordionImported"
+            element={<AccessibleAccordionImported items={items} />}
+          />
         </Routes>
       </BrowserRouter>
     </>
